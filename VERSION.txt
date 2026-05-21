@@ -1,0 +1,48 @@
+WireGuard VPN Deployment Scripts
+Version: 1.1.0
+Release Date: 2026-05-21
+License: MIT
+
+═══════════════════════════════════════════════════════════════════════════════
+
+CHANGELOG v1.1.0:
+
+✨ NEW FEATURES:
+  • Автоматический обход .ru и .рф доменов
+  • Загрузка списка российских IP подсетей из RIPE
+  • Интеграция в основной установочный скрипт
+  • Новая документация RU_BYPASS.md
+
+🔧 IMPROVEMENTS:
+  • Обновлен setup-wireguard.sh с вопросом про обход
+  • Добавлен пункт в quick-start.sh меню
+  • Обновлена справка help.sh
+  • Обновлен CHANGELOG.md
+
+═══════════════════════════════════════════════════════════════════════════════
+
+STATISTICS:
+
+  Total Files:        29
+  Scripts:            18
+  Documentation:      7
+  Configurations:     3
+  Project Size:       ~450 KB
+
+═══════════════════════════════════════════════════════════════════════════════
+
+QUICK START:
+
+  Installation:
+    sudo bash setup-wireguard.sh
+
+  RU Bypass Setup:
+    sudo bash setup-ru-bypass.sh
+
+  Interactive Menu:
+    sudo bash quick-start.sh
+
+  Help:
+    bash help.sh
+
+═══════════════════════════════════════════════════════════════════════════════

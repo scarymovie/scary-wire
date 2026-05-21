@@ -1,1 +1,28 @@
-.idea
+# WireGuard keys and configs
+*.key
+*.conf
+!wg0.conf.example
+
+# Backups
+*.tar.gz
+wireguard-backup-*/
+
+# Docker volumes
+config/
+
+# Environment
+.env
+
+# Logs
+*.log
+
+# Reports
+wireguard-report-*.txt
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,39 @@
+# Пример конфигурации WireGuard сервера
+# Скопируйте в /etc/wireguard/wg0.conf и настройте
+
+[Interface]
+# Приватный ключ сервера (сгенерируйте: wg genkey)
+PrivateKey = SERVER_PRIVATE_KEY_HERE
+
+# IP адрес сервера в VPN сети
+Address = 10.0.0.1/24
+
+# Порт для прослушивания
+ListenPort = 51820
+
+# Команды при запуске/остановке (замените eth0 на ваш интерфейс)
+PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
+
+# Опционально: MTU (если проблемы со скоростью)
+# MTU = 1420
+
+# Опционально: Таблица маршрутизации
+# Table = auto
+
+# ============================================================================
+# КЛИЕНТЫ
+# ============================================================================
+
+# Клиент 1
+[Peer]
+PublicKey = CLIENT1_PUBLIC_KEY_HERE
+AllowedIPs = 10.0.0.2/32
+# PersistentKeepalive = 25  # Для клиентов за NAT
+
+# Клиент 2
+[Peer]
+PublicKey = CLIENT2_PUBLIC_KEY_HERE
+AllowedIPs = 10.0.0.3/32
+
+# Добавьте больше клиентов по необходимости
