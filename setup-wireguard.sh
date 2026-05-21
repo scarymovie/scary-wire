@@ -155,7 +155,8 @@ read -p "Настроить? (y/n): " setup_bypass
 
 if [[ "$setup_bypass" =~ ^[Yy]$ ]]; then
     echo -e "\n${GREEN}Настройка обхода российских доменов...${NC}"
-    bash "$(dirname "$0")/setup-ru-bypass.sh"
+    SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    bash "$SCRIPT_DIR/setup-ru-bypass.sh"
 fi
 
 echo -e "\n${YELLOW}Конфигурационные файлы клиентов находятся в: $SERVER_DIR${NC}"
